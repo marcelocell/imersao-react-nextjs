@@ -12,16 +12,22 @@ export default function QuizDaGaleraPage({ externalDb }) {
 
 export async function getServerSideProps(context) {
   const [projectName, gitHubUser] = context.query.id.split('___')
+  const projectUrl = `https://${projectName}.${gitHubUser}.vercel.app`
   
   try {
     /*global fetch*/
-    const externalDb = await fetch(`https://${projectName}.${gitHubUser}.vercel.app/api/db`)
+    const externalDb = await fetch(`${projectUrl}/api/db`)
       .then((result) => {
         if (result.ok) {
           return result.json()
         }
         throw new Error('Falha ao acessar o servidor')
       })
+    
+    externalDb.questions.forEach(question => {
+      if (question.sound)
+        question.sound = projectUrl + question.sound
+    })
     
     return {
       props: {

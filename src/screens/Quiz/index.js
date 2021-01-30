@@ -10,7 +10,12 @@ import Button from '../../components/Button'
 import AlternativesForm from '../../components/AlternativesForm'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import BackLinkArrow from '../../components/BackLinkArrow';
+import BackLinkArrow from '../../components/BackLinkArrow'
+
+import { Howl } from 'howler'
+import { motion } from 'framer-motion'
+import PlayButton from '../../components/PlayButton'
+import { BsPlay, BsPlayFill} from 'react-icons/bs'
 
 function LoadingWidget() {
   return (
@@ -41,6 +46,19 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit, add
   const isCorrect = selectedAlternative === question.answer
   const hasSelectedAlternative = selectedAlternative !== undefined
   
+  const [isPlaying, setIsPlaying] = useState(false);
+  const sound = question.sound && 
+    new Howl({
+      src: question.sound,
+      html5: true,
+      volume: 0.5,
+      autoplay: false,
+      preload: true,
+      onend: () => {
+        setIsPlaying(false);
+      }
+    })
+  
   return (
     <Widget>
       <Widget.Header>
@@ -63,6 +81,25 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit, add
         <p>
           {question.description}
         </p>
+        {question.sound && 
+          <PlayButton 
+            onClick={() => {
+              if(!isPlaying) {
+                sound.play();
+                setIsPlaying(true);
+              }
+            }}
+            as={motion.button}
+            whileHover={{ 
+              scale: 1.1,
+              transition: { duration: 0.1}
+            }}
+            whileTap={{ scale: 1 }}
+          >
+            {!isPlaying && <BsPlay size={40} />}
+            {isPlaying && <BsPlayFill size={40} />}
+          </PlayButton>
+        }
         <AlternativesForm
           onSubmit={function (e) {
             e.preventDefault();
@@ -92,6 +129,7 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit, add
                   name={questionId}
                   type="radio"
                   onChange={() => setSelectedAlternative(index)}
+                  checked={false}
                 />
                 {alternative}
               </Widget.Topic>
