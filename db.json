@@ -1,28 +1,70 @@
 {
-  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
-  "title": "Quiz CSS da Alura",
-  "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+  "bg": "https://img.wallpapersafari.com/desktop/1920/1080/38/65/Fcx7LA.jpg",
+  "title": "Quiz Star Wars",
+  "description": "Teste os seus conhecimentos sobre Star Wars e vamos ver se você conhece a força",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
+      "image": "https://media.giphy.com/media/xTiIzRJvjSIBduY2ys/giphy.gif",
+      "title": "Qual é o planeta natal de Anakin Skywalker?",
       "description": "Essa é pra aquecer",
       "answer": 2,
       "alternatives": [
-        ".elemento",
-        "*elemento",
-        "#elemento",
-        "%elemento"
+        "Mustafar",
+        "Coruscant",
+        "Tattoine",
+        "Jaku"
       ]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
+      "image": "https://media.giphy.com/media/Nx0rz3jtxtEre/giphy.gif",
+      "title": "Qual o nome do antigo mestre de Obi Wan Kenobi?",
+      "description": "Dica: era um Jedi...",
+      "answer": 0,
+      "alternatives": [
+         "Qui Gon Jinn",
+         "Jar Jar Bings",
+         "Mace Windu",
+         "Dookan"
+       
+      ]
+    },
+    {
+      "image": "https://i.makeagif.com/media/12-30-2015/_0UZLO.gif",
+      "title": "Quantos braços tinha o General Grievous?",
+      "description": "Não vale buscar no Google Imagens!",
+      "answer": 1,
+      "alternatives": [
+         "2 braços",
+         "4 braços",
+         "6 braços",
+         "8 braços"
+       
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/l1AsUvwEEBorHpMpG/giphy.gif",
+      "title": "Em que ano o filme: \"Star Wars Episódio IV: Uma Nova Esperança\" foi lançado?",
       "description": "Faz tempo em haha",
       "answer": 0,
       "alternatives": [
-         "background: linear-gradient(#e66465, #9198e5);",
-         "background: gradient(#e66465, #9198e5);"
+         "1977",
+         "1978",
+         "1987",
+         "1989"
+       
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/3ornka9rAaKRA2Rkac/giphy.gif",
+      "title": "Quem disse pela primeira vez nos filmes a frase \"Que a Força esteja com você\"?",
+      "description": "Essa é para os fãs mesmo!",
+      "answer": 3,
+      "alternatives": [
+         "Luke Skywalker",
+         "Pricesa Leia",
+         "Obi Wan Kenobi",
+         "General Jan Dodonna"
+       
       ]
     }
   ],
@@ -32,9 +74,9 @@
   ],
   "theme": {
     "colors": {
-      "primary": "#0d47a1",
-      "secondary": "#29b6f6",
-      "mainBg": "#171B35",
+      "primary": "#9F0613",
+      "secondary": "#FFE81F",
+      "mainBg": "#000000",
       "contrastText": "#FFFFFF",
       "wrong": "#FF5722",
       "success": "#4CAF50"

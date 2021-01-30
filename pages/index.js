@@ -29,6 +29,8 @@ export default function Home() {
             <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
+            {db.description}
+            <br/><br/>
             <form onSubmit={function (e) {
               e.preventDefault();
               router.push(`/quiz?name=${name}`);
