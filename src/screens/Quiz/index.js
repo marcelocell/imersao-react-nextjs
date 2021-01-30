@@ -1,22 +1,22 @@
 import styled from 'styled-components'
-import db from '../db.json';
-import QuizContainer from '../src/components/QuizContainer'
-import Widget from '../src/components/Widget'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
-import Input from '../src/components/Input'
-import Button from '../src/components/Button'
-import AlternativesForm from '../src/components/AlternativesForm'
+import QuizContainer from '../../components/QuizContainer'
+import Widget from '../../components/Widget'
+import QuizLogo from '../../components/QuizLogo'
+import QuizBackground from '../../components/QuizBackground'
+import Footer from '../../components/Footer'
+import GitHubCorner from '../../components/GitHubCorner'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
+import AlternativesForm from '../../components/AlternativesForm'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import BackLinkArrow from '../../components/BackLinkArrow';
 
 function LoadingWidget() {
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         Carregando...
       </Widget.Header>
 
@@ -44,6 +44,7 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit, add
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h3>
       </Widget.Header>
       <img
@@ -109,6 +110,7 @@ function ResultWidget({ results }) {
   return (
     <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h3>Fim de Jogo</h3>
       </Widget.Header>
       <Widget.Content>
@@ -143,7 +145,7 @@ const screenStates = {
   RESULT: 'RESULT',
 }
 
-export default function QuizPage() {
+export default function QuizScreen({ db }) {
   const [screenState, setScreenState] = useState(screenStates.LOADING)
   const [questionIndex, setQuestionIndex] = useState(0)
   const [results, setResults] = useState([])

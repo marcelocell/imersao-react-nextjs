@@ -27,7 +27,8 @@
     }
   ],
   "external": [
-    ""
+    "https://1sec-quiz.victoroda.vercel.app/",
+    "https://gamequiz.brunoamaia.vercel.app/"
   ],
   "theme": {
     "colors": {

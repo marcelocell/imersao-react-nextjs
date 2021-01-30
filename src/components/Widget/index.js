@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Widget = styled.div`
+const WidgetBase = styled.div`
   margin-top: 24px;
   margin-bottom: 24px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -21,6 +22,25 @@ const Widget = styled.div`
     line-height: 1;
   }
 `;
+
+const Widget = function({ children }) {
+  return (
+    
+    <WidgetBase
+      as={motion.section}
+      transition={{ duration: 0.5 }}
+      variants={{
+        show: { opacity: 1, y: '0' },
+        hidden: { opacity: 0, y: '1%' },
+      }}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+    >
+      {children}
+    </WidgetBase>
+  )
+}
 
 Widget.Header = styled.header`
   display: flex;
